@@ -23,9 +23,11 @@ router.post('/', async (req, res) => {
 
 
 
+
+
 async function loadUsersCollection() {
     const client = await mongodb.MongoClient.connect(
-        'mongodb://127.0.0.1:27017',
+        'mongodb+srv://user1:123@cluster0-aorjc.mongodb.net/test?retryWrites=true&w=majority',
         {
             useNewUrlParser: true
         }

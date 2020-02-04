@@ -31,9 +31,7 @@ class PostService {
                 provider,
                 review
 
-            }
-
-            )
+            })
         });
     }
 
@@ -42,7 +40,24 @@ class PostService {
     return fetch(`${url}${id}`, {
       method: "DELETE"
     });
-  }
+    }
+
+    //Update Posts
+    static updatePost(id, updatedText) {
+        return fetch(`${url}${id}`, {
+            method: "PUT",
+            mode: "cors",
+            headers: {
+                'Accept': 'application / json',
+                'Content-Type': 'application/json;charset=UTF-8'
+            },
+            body: JSON.stringify({
+                updatedText
+            })
+        });
+    }
 }
+
+
 
 export default PostService

@@ -23,6 +23,7 @@
                  v-bind:item="post"
                  v-bind:index="index"
                  v-bind:key="post.id"
+                 v-on:click.ctrl="updatePost(post._id)"
                  v-on:dblclick="deletePost(post._id)">
                 {{ `${post.createdAt.getDate()}/${post.createdAt.getMonth()}/${post.createdAt.getFullYear()}` }}
                 <p class="text">{{ post.text }}</p>
@@ -66,6 +67,11 @@
         methods: {
             async createPost() {
                 await PostService.insertPost(this.text, this.topic, this.price, this.location, this.provider, this.review);
+                this.posts = await PostService.getPosts();
+            },
+            async updatePost(id) {
+                var updatedText = prompt("Please enter new value", "New post value")
+                await PostService.updatePost(id, updatedText);
                 this.posts = await PostService.getPosts();
             },
             async deletePost(id) {
