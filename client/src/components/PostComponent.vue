@@ -98,8 +98,8 @@ p.error {
 
 div.post {
   position: relative;
-  border: 1px solid #5bd658;
-  background-color: #bcffb8;
+  border: 1px solid #81b1ee;
+  background-color: #81b1ee;
   padding: 10px 10px 30px 10px;
   margin-bottom: 15px;
 }
